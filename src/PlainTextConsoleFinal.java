@@ -40,7 +40,7 @@ menor aparición entre todas las muestras y dicha cantidad*/
 
         sc.useDelimiter(Pattern.compile(System.getProperty("line.separator")));
         
-        System.out.println("Bienvenidos al TP Final de EDYP!!"); //Mensaje de bienvenida
+        System.out.println("Bienvenidos al TP Final de EDP Blachman Bond Ems!!"); //Mensaje de bienvenida
 
         while(true) {
             //Imprimimos el menú ante cada input del usuario
