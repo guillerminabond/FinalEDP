@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class FinalBlachmanBondEms {
+public class FinalBlachmanBondEmsV1 {
 
 	static List<String> entrada = new LinkedList<String>();
 	static HashMap<String, String> PacientesEnfermedades = new HashMap<String,String>();
@@ -75,7 +75,7 @@ public class FinalBlachmanBondEms {
 	}
 
 	public static String extraerEnfermedad(String sequence) {
-		String[] parts = sequence.split(" ?- ?");
+		String[] parts = sequence.split(" - ");	
 
 		if (codenf.matcher(parts[1]).matches()) {
 			return parts[1];
@@ -85,7 +85,7 @@ public class FinalBlachmanBondEms {
 	}
 
 	public static String extraerMuestraDNA(String sequence) {
-		String[] parts = sequence.split(" ?- ?");
+		String[] parts = sequence.split(" - ");	
 
 		if (codDNA.matcher(parts[2]).matches()) {
 			return parts[2];
@@ -101,7 +101,7 @@ public class FinalBlachmanBondEms {
 		Pattern genA = Pattern.compile("ATG[ATCG]*(AAGGTTCGTACT|AGCCTAGTAGAT|ACGCTAAGCGCT)[ATCG]*(TAG|TGA|TAA)");
 		Pattern genH = Pattern.compile("ATG[ATCG]*(GTCATTGTACGT|AACGCTGACTCG|GAACTCGGCTTA)[ATCG]*(TAG|TGA|TAA)");
 
-		List<String> Genes = new LinkedList<String>();
+		List<String> Genes = new LinkedList<>();
 
 		String temp ="";
 		String gen ="";
@@ -241,7 +241,7 @@ public class FinalBlachmanBondEms {
 		String stmp = "";
 		for(int i=0;i<lenC;i++) { 
 			j = i;
-			for(int k = i;k<lenC;k++){ 
+			for(int k = i;k>lenC;k++){ 
 				if(cantidades[j]<cantidades[k]){
 					j = k; 
 				}
@@ -345,6 +345,7 @@ public class FinalBlachmanBondEms {
 		nombresEnf.put("HASHIMOTO", "Tiroiditis de Hashimoto");
 		nombresEnf.put("ADDISON", "Enfermedad de Addison");
 
+
 		for(int i = 0; i < entrada.size(); i++){
 			String paciente = extraerPaciente(entrada.get(i));
 			System.out.println("Código de Paciente:" +paciente);	
@@ -371,7 +372,7 @@ public class FinalBlachmanBondEms {
 
 		System.out.println("Bienvenidos al TP Final de EDyP!"); //Mensaje de bienvenida
 		System.out.println("Autores: Blachman Bond Ems");
-
+		
 		while(true) {
 			//Imprimimos el menú ante cada input del usuario
 			System.out.println("\tMenú del programa:");
@@ -409,7 +410,7 @@ public class FinalBlachmanBondEms {
 		}
 
 		System.out.println("¡Gracias por utilizar este programa!");
-		System.out.println("¡Hasta luego!");
+		System.out.println("¡Hasta Luego!");
 
 		sc.close();
 
