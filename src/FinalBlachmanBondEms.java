@@ -65,12 +65,12 @@ public class FinalBlachmanBondEms {
 	static String aminH3 = "Glu Leu Gly Leu";
 
 	public static String extraerPaciente(String sequence) {
-		String[] parts = sequence.split(" - ");
+		String[] parts = sequence.split(" ?- ?");
 
 		if (codpac.matcher(parts[0]).matches()) {
 			return parts[0];
 		}
-
+		
 		throw new RuntimeException("Código de paciente no válido");
 	}
 
